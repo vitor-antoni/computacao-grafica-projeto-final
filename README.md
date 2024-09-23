@@ -112,6 +112,20 @@ def draw_triangle():
 - `glEnd()` > Finaliza a execução do desenho.
 
 ***
+### Atividade 2
+Como solicitado na proposta da atividade, precisamos desenhar dois triângulos em uma mesma tela com interações, sendo elas: apenas polígono preenchido, apenas com contorno, apenas como pontos e todas as opções juntas.
+
+Utilizamos o pygame para escrever o código completo, importando tudo do pygame.locals
+
+Para criação da janela utilizamos como largura 800 e altura 600
+screen_width = 800
+screen_height = 600
+
+As cores utilizadas foram: preto, vermelho, azul, ciano e amarelo.
+
+
+
+
 
 ### Atividade 3
 Como solicitado na proposta da atividade, devemos desenhar um triângulo e definir 3 formas de interação com o desenho. Sendo elas a possibilidade de movê-lo, dimnuí-lo/aumentá-lo e rotacioná-lo. Portanto, segue a explicativa de cada código a abaixo e a legenda de comandos possíveis.
