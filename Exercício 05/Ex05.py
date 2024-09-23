@@ -45,8 +45,8 @@ def draw_triangle():
 
 def draw_circle():
     # Desenha a circunferência
-    x_circle = 6
-    y_circle = 4
+    x_circulo = 6
+    y_circulo = 4
     
     raio = 1
     segmento = 360
@@ -56,13 +56,13 @@ def draw_circle():
         angle = 2 * math.pi * i / segmento
         x = raio * math.cos(angle)
         y = raio * math.sin(angle)
-        glVertex3f(x + x_circle, y + y_circle, 0)
+        glVertex3f(x + x_circulo, y + y_circulo, 0)
     glEnd()
 
 
     # Desenha a circunferência refletida
-    x_circle = -6
-    y_circle = 4
+    x_circulo = -6
+    y_circulo = 4
     
     raio = 1
     segmento = 360
@@ -72,7 +72,7 @@ def draw_circle():
         angle = 2 * math.pi * i / segmento
         x = raio * math.cos(angle)
         y = raio * math.sin(angle)
-        glVertex3f(x + x_circle, y + y_circle, 0)
+        glVertex3f(x + x_circulo, y + y_circulo, 0)
     glEnd()
 
 def draw_square():
