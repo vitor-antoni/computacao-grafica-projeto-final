@@ -1,0 +1,55 @@
+import pygame
+from pygame.locals import *
+
+# Inicializa o Pygame
+pygame.init()
+
+# Configuração da janela
+screen_width = 800
+screen_height = 600
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Movimento do Quadrado")
+
+# Cores
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+
+# Posição do quadrado
+square_x = screen_width // 2
+square_y = screen_height // 2
+square_size = 50  # Tamanho do quadrado
+speed = 5  # Velocidade de movimento
+
+# Loop principal
+running = True
+while running:
+   for event in pygame.event.get():
+       if event.type == QUIT:
+           running = False
+
+   # Captura as teclas pressionadas
+   keys = pygame.key.get_pressed()
+  
+   if keys[K_UP] or keys[K_w]:    # Cima
+       square_y -= speed
+   if keys[K_DOWN] or keys[K_s]:  # Baixo
+       square_y += speed
+   if keys[K_LEFT] or keys[K_a]:   # Esquerda
+       square_x -= speed
+   if keys[K_RIGHT] or keys[K_d]:  # Direita
+       square_x += speed
+
+   # Preenche a tela com a cor preta
+   screen.fill(BLACK)
+
+   # Desenha o quadrado
+   pygame.draw.rect(screen, WHITE, (square_x, square_y, square_size, square_size))
+
+   # Atualiza a tela
+   pygame.display.flip()
+
+   # Controla a taxa de atualização
+   pygame.time.delay(30)
+
+# Encerra o Pygame
+pygame.quit()
