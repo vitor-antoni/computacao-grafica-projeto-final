@@ -48,12 +48,12 @@ def draw():
             if triangle_scale < 0.1:
                 triangle_scale = 0.1
 
-        # Rotacionar o triângulo em sentido horário (tecla Q)
-        if keys[pygame.K_q]:
+        # Rotacionar o triângulo em sentido horário (tecla E)
+        if keys[pygame.K_e]:
             triangle_rotation += 90
 
-        # Rotacionar o triângulo em sentido anti-horário (tecla E)
-        elif keys[pygame.K_e]:
+        # Rotacionar o triângulo em sentido anti-horário (tecla Q)
+        elif keys[pygame.K_q]:
             triangle_rotation -= 90
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
