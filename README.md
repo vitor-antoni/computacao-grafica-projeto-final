@@ -55,6 +55,8 @@ def draw_point(x, y, size):
 - `glVertex2i(x, y)` > Define as cordenadas do ponto a ser desenhado.
 - `glEnd()` > Finaliza a execução do desenho.
 
+![Ex01-a](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex01-a.png)
+
 #### **Exercício 1-B**
 Os trechos principais a serem analisados é o código que recebe os valores de X1 ,Y1 , X2 E Y2 através de input do usuário e o código da função `draw_line()` que é responsável por desenhar a linha na tela com base nos valores de input do usuário. Portanto, abaixo seguem os códigos e as explicações dos parâmetros utilizados.
 ```
@@ -77,6 +79,8 @@ def draw_line(X1, Y1, X2, Y2):
 - `glVertex2i(X2, Y2)` > Define as cordenadas do segundo ponto da reta.
 - `glEnd()` > Finaliza a execução do desenho.
 
+![Ex01-b](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex01-b.png)
+
 #### **Exercício 1-C**
 O trecho principal a ser analisado é o código que desenha o quadrado na tela, no caso a função `draw_square()`.
 ```
@@ -97,6 +101,8 @@ def draw_square():
 - `for vertex in vertices` > Um laço FOR que itera a tupla da variável `vertices` e desenha o quadrado com base nos valores das tuplas aninhadas.
 - `glEnd()` > Finaliza a execução do desenho.
 
+![Ex01-c](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex01-c.png)
+
 #### **Exercício 1-D**
 O trecho principal a ser analisado é o código que desenha o triângulo na tela, no caso a função `def draw_triangle()`.
 ```
@@ -110,6 +116,8 @@ def draw_triangle():
 - `glBegin(GL_TRIANGLES)` > Indica ao PyOpenGL que deve ser inicializado e que a figura geométrica a ser desenhada é um triângulo.
 - `glVertex3f()` > Define os vértices do triângulo a ser desenhado. Sendo eles, o primeiro vértice o ponto inferior esquerdo, o segundo vértice o ponto inferior direito e o último vértice o ponto superior.
 - `glEnd()` > Finaliza a execução do desenho.
+
+![Ex01-d](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex01-d.png)
 
 ***
 ### Atividade 2
@@ -222,7 +230,10 @@ def draw_right_triangle():
 - `for vertex in vertices` > Um laço FOR que itera a tupla da variável `vertices` e desenha o triângulo retângulo com base nos valores das tuplas aninhadas.
 - `glEnd()` > Finaliza a execução do desenho.
 
+![Ex03](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex03.png)
+
 ***
+
 ### Atividade 4
 Nessa atividade é pedido que seja feito um quadrado capaz de se movimentar pela página com as teclas WASD ou SETAS.
 
@@ -365,7 +376,10 @@ def draw_square():
 - `glEnd()` > Finaliza a execução do desenho.
 - Para fazer a reflexão do quadrado sob o eixo Y, precisamos multiplicar a cordenada X do círculo por -1. E para fazer a reflexão sob o eixo X, precisamos multiplicar as cordenadas Y de cada vértice por -1.
 
+![Ex05](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex05.png)
+
 ***
+
 ### Atividade 6
 Nessa atividade devemos criar uma casa simples, utilizando um quadrado para o corpo, um triângulo para o telhado e dois círculos para as janelas
 
@@ -391,6 +405,7 @@ Para o tamanho de cada objeto utilizamos as coordenadas x e y
 
 
 ***
+
 ### Atividade 7
 Conforme solicitado na atividade, devemos montar um deseneho com as formas geométricas primitivas. Portanto, foi escolhido o deseneho de uma boneca, em que os braços são representados por linhas, o corpo por triângulo, as pernas por retângulos e a cabeça por círculo.
 
@@ -488,7 +503,10 @@ def draw_arms():
 - `glVertex2i()` > Define as cordenadas do segundo ponto da reta.
 - `glEnd()` > Finaliza a execução do desenho.
 
+![Ex07](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex07.png)
+
 ***
+
 ### Atividade 8
 
 Por fim a ultima questão propõe a criação de uma cena composta de quadrados distribuídos em grid conforme o exemplo
