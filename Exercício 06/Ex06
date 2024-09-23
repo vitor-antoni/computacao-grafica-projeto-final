@@ -1,0 +1,60 @@
+import pygame
+from pygame.locals import *
+
+# Inicializa o Pygame
+pygame.init()
+
+# Configuração da janela
+screen_width = 800
+screen_height = 600
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Casa Simples")
+
+# Cores
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+BROWN = (165, 42, 42)  # Cor do corpo da casa
+GREEN = (0, 128, 0)  # Cor do telhado
+BLUE = (0, 0, 255)  # Cor das janelas
+
+# Posição da casa
+house_x = screen_width // 2 - 75  # Centraliza a casa
+house_y = screen_height // 2 - 75
+house_width = 150
+house_height = 150
+
+# Loop principal
+running = True
+while running:
+   for event in pygame.event.get():
+       if event.type == QUIT:
+           running = False
+
+   # Preenche a tela com a cor preta
+   screen.fill(BLACK)
+
+   # Desenha o corpo da casa (um quadrado)
+   pygame.draw.rect(screen, BROWN, (house_x, house_y, house_width, house_height))
+
+   # Desenha o telhado (um triângulo)
+   roof_points = [
+       (house_x, house_y),  # Ponto esquerdo inferior
+       (house_x + house_width, house_y),  # Ponto direito inferior
+       (house_x + house_width // 2, house_y - 75)  # Ponto do topo
+   ]
+   pygame.draw.polygon(screen, GREEN, roof_points)
+
+   # Desenha as janelas (círculos)
+   window_radius = 20
+   window_y = house_y + 50
+   pygame.draw.circle(screen, BLUE, (house_x + 40, window_y + 40), window_radius)
+   pygame.draw.circle(screen, BLUE, (house_x + 110, window_y + 40), window_radius)
+
+   # Atualiza a tela
+   pygame.display.flip()
+
+   # Controla a taxa de atualização
+   pygame.time.delay(30)
+
+# Encerra o Pygame
+pygame.quit()
