@@ -120,6 +120,7 @@ def draw_triangle():
 ![Ex01-d](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex01-d.png)
 
 ***
+
 ### Atividade 2
 Como solicitado na proposta da atividade, precisamos desenhar dois triângulos em uma mesma tela com interações, sendo elas: apenas polígono preenchido, apenas com contorno, apenas como pontos e todas as opções juntas.
 
@@ -133,6 +134,7 @@ As cores utilizadas foram: preto, vermelho, azul, ciano e amarelo.
 
 As teclas definidas para cada modo foram: 1, 2, 3 e 4 sendo respectivamente polígono preenchido, contorno, pontos e todos juntos
 running = True
+```
 while running:
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -147,8 +149,10 @@ while running:
                 draw_mode = 3  # Pontos
             elif event.key == K_4:
                 draw_mode = 4  # Todas as formas juntas
+```
 
 ***
+
 ### Atividade 3
 Como solicitado na proposta da atividade, devemos desenhar um triângulo e definir 3 formas de interação com o desenho. Sendo elas a possibilidade de movê-lo, dimnuí-lo/aumentá-lo e rotacioná-lo. Portanto, segue a explicativa de cada código a abaixo e a legenda de comandos possíveis.
 
@@ -245,7 +249,7 @@ screen_height = 600
 Para cores utilizamos preto e branco, sendo branco para o quadrado
 
 Definimos que o quadrado se movimenta com ambas as teclas WASD e SETAS.
-
+```
    if keys[K_UP] or keys[K_w]:    # Cima
        square_y -= speed
    if keys[K_DOWN] or keys[K_s]:  # Baixo
@@ -254,9 +258,10 @@ Definimos que o quadrado se movimenta com ambas as teclas WASD e SETAS.
        square_x -= speed
    if keys[K_RIGHT] or keys[K_d]:  # Direita
        square_x += speed
-
+```
        
 ***
+
 ### Atividade 5
 
 Nesta atividade, precisamos criar 3 figuras geométricas (triângulo, círculo e quadrado). Além disto, precisamos criar reflexões destes objetos nos exios X e Y. Portanto, abaixo segue a explicação de execução.
@@ -389,7 +394,7 @@ screen_width = 800
 screen_height = 600
 
 Definimos as cores a serem utilizadas: preto, branco, marrom, verde e azul.
-
+```
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BROWN = (165, 42, 42)  # Cor do corpo da casa
@@ -402,7 +407,7 @@ Para o tamanho de cada objeto utilizamos as coordenadas x e y
    window_y = house_y + 50
    pygame.draw.circle(screen, BLUE, (house_x + 40, window_y + 40), window_radius)
    pygame.draw.circle(screen, BLUE, (house_x + 110, window_y + 40), window_radius)
-
+```
 
 ***
 
@@ -517,7 +522,7 @@ screen_width = 800
 screen_height = 600
 
 Para o tamanho de cada quadrado foi definido tamanho 50. Também definimos que cols são as colunas e rows as linhas
-
+```
 grid_size = 50  # Tamanho de cada quadrado
 cols = screen_width // grid_size  # Número de colunas
 rows = screen_height // grid_size  # Número de linhas
@@ -533,8 +538,9 @@ for row in range(rows):
            y = row * grid_size
            # Desenha o quadrado
            pygame.draw.rect(screen, color, (x, y, grid_size, grid_size))
-
+```
 
 ***
+
 ## Conclusão
 Para concluírmos, gostaríamos de agradecer a atenção dedicada a análise das nossas resoluções.
