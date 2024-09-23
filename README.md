@@ -111,7 +111,9 @@ def draw_triangle():
 - `glVertex3f()` > Define os vértices do triângulo a ser desenhado. Sendo eles, o primeiro vértice o ponto inferior esquerdo, o segundo vértice o ponto inferior direito e o último vértice o ponto superior.
 - `glEnd()` > Finaliza a execução do desenho.
 
-### Exercício 3
+***
+
+### Atividade 3
 Como solicitado na proposta da atividade, devemos desenhar um triângulo e definir 3 formas de interação com o desenho. Sendo elas a possibilidade de movê-lo, dimnuí-lo/aumentá-lo e rotacioná-lo. Portanto, segue a explicativa de cada código a abaixo.
 ```
 if keys[pygame.K_LEFT]:
@@ -167,5 +169,227 @@ glPopMatrix()
 - `glScalef(triangle_scale, triangle_scale, 1.0)` > Realizar o aumento e diminuição do tamanho do triângulo.
 - `glPopMatrix()` > Restaura a matriz para o estado salvo mais recente.
 
-### Exercício 5
-### Exercício 7
+***
+
+### Atividade 5
+
+Nesta atividade, precisamos criar 3 figuras geométricas (triângulo, círculo e quadrado). Além disto, precisamos criar reflexões destes objetos nos exios X e Y. Portanto, abaixo segue a explicação de execução.
+
+#### **Triângulo**
+```
+def draw_triangle():
+    # Desenha o triângulo
+    glBegin(GL_TRIANGLES)
+    glVertex3f(-3, 1, 0)    # Ponto inferior esquerdo
+    glVertex3f(-1, 1, 0)    # Ponto inferior direito
+    glVertex3f(-2, 2, 0)    # Ponto superior
+    glEnd()
+
+    # Desenha o triângulo refletido
+    glBegin(GL_TRIANGLES)
+    glVertex3f(-3, -1, 0)    # Ponto inferior esquerdo
+    glVertex3f(-1, -1, 0)    # Ponto inferior direito
+    glVertex3f(-2, -2, 0)    # Ponto superior
+    glEnd()
+```
+- `glBegin(GL_TRIANGLES)` > Indica ao PyOpenGL que deve ser inicializado e que a figura geométrica a ser desenhada é um triângulo.
+- `glVertex3f()` > Define os vértices do triângulo a ser desenhado. Sendo eles, o primeiro vértice o ponto inferior esquerdo, o segundo vértice o ponto inferior direito e o último vértice o ponto superior.
+- `glEnd()` > Finaliza a execução do desenho.
+- Para fazer a reflexão do triângulo sob o eixo X, precisamos multiplicar as cordenadas Y de cada vértice por -1.
+
+#### **Círculo**
+```
+def draw_circle():
+    # Desenha a circunferência
+    x_circulo = 6
+    y_circulo = 4
+    
+    raio = 1
+    segmento = 360
+
+    glBegin(GL_TRIANGLE_FAN)
+    for i in range(segmento):
+        angle = 2 * math.pi * i / segmento
+        x = raio * math.cos(angle)
+        y = raio * math.sin(angle)
+        glVertex3f(x + x_circulo, y + y_circulo, 0)
+    glEnd()
+
+
+    # Desenha a circunferência refletida
+    x_circulo = -6
+    y_circulo = 4
+    
+    raio = 1
+    segmento = 360
+
+    glBegin(GL_TRIANGLE_FAN)
+    for i in range(segmento):
+        angle = 2 * math.pi * i / segmento
+        x = raio * math.cos(angle)
+        y = raio * math.sin(angle)
+        glVertex3f(x + x_circulo, y + y_circulo, 0)
+    glEnd()
+```
+- `x_circulo e y_circulo` > As coordenadas do centro da circunferência.
+- `raio` > O raio da circunferência.
+- `segmento` > O número de divisões da circunferência, ou seja, quantos segmentos (ou fatias) vão compor o círculo. Neste caso, 360, o que significa que o círculo será aproximado por 360 vértices (um vértice para cada grau, o que garante uma forma suave).
+- `glBegin(GL_TRIANGLE_FAN)` > Indica ao PyOpenGL que deve ser inicializado e que as figuras geométricas a serem desenhadas são triângulos conectados em um ponto central (o centro da circunferência).
+- `for i in range(segmento):` > O loop percorre todos os 360 segmentos que formam a circunferência
+- `angle` > Calcula o ângulo atual, em radianos, baseado no número de segmentos.
+- `x e y` > Calcula as coordenadas (x, y) usando as funções trigonométricas cos e sin, multiplicando pelo raio para obter o ponto ao longo da circunferência.
+- `x = raio * math.cos(angle)`> calcula a coordenada x para o vértice no ângulo atual.
+- `y = raio * math.sin(angle)` > calcula a coordenada y correspondente.
+- `glVertex3f(x + x_circulo, y + y_circulo, 0)` > Define o vértice no plano cartesiano.
+- `glEnd()` > Finaliza a execução do desenho.
+- Para fazer a reflexão do círculo sob o eixo Y, precisamos multiplicar a cordenada X do círculo por -1.
+
+#### **Quadrado**
+```
+def draw_square():
+    # Desenha o quadrado
+    vertices = (
+        (4, 3, 0),
+        (4, 2, 0),
+        (3, 2, 0),
+        (3, 3, 0))
+
+    glBegin(GL_QUADS)
+    for vertex in vertices:
+        glVertex3fv(vertex)
+    glEnd()
+
+    # Desenha o quadrado refletido
+    ## Reflexao eixo X
+    vertices = (
+        (4, -3, 0),
+        (4, -2, 0),
+        (3, -2, 0),
+        (3, -3, 0))
+
+    glBegin(GL_QUADS)
+    for vertex in vertices:
+        glVertex3fv(vertex)
+    glEnd()
+
+    ## Reflexao eixo Y
+    vertices = (
+        (-4, 3, 0),
+        (-4, 2, 0),
+        (-3, 2, 0),
+        (-3, 3, 0))
+
+    glBegin(GL_QUADS)
+    for vertex in vertices:
+        glVertex3fv(vertex)
+    glEnd()
+```
+- `vertices()` > Uma variável do tipo tupla que possuí outras tuplas aninhadas e que possuem as cordenadas de cada vértice do quadrado.
+- `glBegin(GL_QUADS)` > Indica ao PyOpenGL que deve ser inicializado e que a figura geométrica a ser desenhada é um quadrado.
+- `for vertex in vertices` > Um laço FOR que itera a tupla da variável `vertices` e desenha o quadrado com base nos valores das tuplas aninhadas.
+- `glEnd()` > Finaliza a execução do desenho.
+- Para fazer a reflexão do quadrado sob o eixo Y, precisamos multiplicar a cordenada X do círculo por -1. E para fazer a reflexão sob o eixo X, precisamos multiplicar as cordenadas Y de cada vértice por -1.
+
+***
+
+### Atividade 7
+Conforme solicitado na atividade, devemos montar um deseneho com as formas geométricas primitivas. Portanto, foi escolhido o deseneho de uma boneca, em que os braços são representados por linhas, o corpo por triângulo, as pernas por retângulos e a cabeça por círculo.
+
+#### **Corpo (triângulo)**
+```
+def draw_body():
+    glBegin(GL_TRIANGLES)
+    glVertex3f(-1, 1, 0)    # Ponto inferior esquerdo
+    glVertex3f(1, 1, 0)     # Ponto inferior direito
+    glVertex3f(0, 3, 0)     # Ponto superior
+    glEnd()
+```
+- `glBegin(GL_TRIANGLES)` > Indica ao PyOpenGL que deve ser inicializado e que a figura geométrica a ser desenhada é um triângulo.
+- `glVertex3f()` > Define os vértices do triângulo a ser desenhado. Sendo eles, o primeiro vértice o ponto inferior esquerdo, o segundo vértice o ponto inferior direito e o último vértice o ponto superior.
+- `glEnd()` > Finaliza a execução do desenho.
+
+#### **Cabeça (círculo)**
+```
+def draw_head():
+    x_circulo = 0
+    y_circulo = 4
+    
+    raio = 1
+    segmento = 360
+
+    glBegin(GL_TRIANGLE_FAN)
+    for i in range(segmento):
+        angle = 2 * math.pi * i / segmento
+        x = raio * math.cos(angle)
+        y = raio * math.sin(angle)
+        glVertex3f(x + x_circulo, y + y_circulo, 0)
+    glEnd()
+```
+- `x_circulo e y_circulo` > As coordenadas do centro da circunferência.
+- `raio` > O raio da circunferência.
+- `segmento` > O número de divisões da circunferência, ou seja, quantos segmentos (ou fatias) vão compor o círculo. Neste caso, 360, o que significa que o círculo será aproximado por 360 vértices (um vértice para cada grau, o que garante uma forma suave).
+- `glBegin(GL_TRIANGLE_FAN)` > Indica ao PyOpenGL que deve ser inicializado e que as figuras geométricas a serem desenhadas são triângulos conectados em um ponto central (o centro da circunferência).
+- `for i in range(segmento):` > O loop percorre todos os 360 segmentos que formam a circunferência
+- `angle` > Calcula o ângulo atual, em radianos, baseado no número de segmentos.
+- `x e y` > Calcula as coordenadas (x, y) usando as funções trigonométricas cos e sin, multiplicando pelo raio para obter o ponto ao longo da circunferência.
+- `x = raio * math.cos(angle)`> calcula a coordenada x para o vértice no ângulo atual.
+- `y = raio * math.sin(angle)` > calcula a coordenada y correspondente.
+- `glVertex3f(x + x_circulo, y + y_circulo, 0)` > Define o vértice no plano cartesiano.
+- `glEnd()` > Finaliza a execução do desenho.
+
+#### **Pernas (retângulo)**
+```
+def draw_legs():
+    # Perna direita
+    vertices = (
+        (0.4, 1, 0),
+        (0.4, 0, 0),
+        (0.2, 0, 0),
+        (0.2, 1, 0))
+
+    glBegin(GL_QUADS)
+    for vertex in vertices:
+        glVertex3fv(vertex)
+    glEnd()
+
+    # Perna esquerda
+    vertices = (
+        (-0.4, 1, 0),
+        (-0.4, 0, 0),
+        (-0.2, 0, 0),
+        (-0.2, 1, 0))
+
+    glBegin(GL_QUADS)
+    for vertex in vertices:
+        glVertex3fv(vertex)
+    glEnd()
+```
+- `vertices()` > Uma variável do tipo tupla que possuí outras tuplas aninhadas e que possuem as cordenadas de cada vértice do retângulo.
+- `glBegin(GL_QUADS)` > Indica ao PyOpenGL que deve ser inicializado e que a figura geométrica a ser desenhada é um quadrado. Embora que a figura geométrica a ser desenhada seja o retângulo, usamos a inicialização do desenho do Quadrado mas transformamos a figura em um retângulo a partir das cordenadas de cada vértice.
+- `for vertex in vertices` > Um laço FOR que itera a tupla da variável `vertices` e desenha o retângulo com base nos valores das tuplas aninhadas.
+- `glEnd()` > Finaliza a execução do desenho.
+
+#### **Braços (linhas)**
+```
+def draw_arms():
+    # Braço direito
+    glBegin(GL_LINES)
+    glVertex2i(0, 2)
+    glVertex2i(2, 2)
+    glEnd()
+
+    # Braço esquerdo
+    glBegin(GL_LINES)
+    glVertex2i(0, 2)
+    glVertex2i(-2, 2)
+    glEnd()
+```
+- `glBegin(GL_LINES)` > Indica ao PyOpenGL que deve ser inicializado e que a figura geométrica a ser desenhada é uma linha.
+- `glVertex2i()` > Define as cordenadas do primeiro ponto da reta.
+- `glVertex2i()` > Define as cordenadas do segundo ponto da reta.
+- `glEnd()` > Finaliza a execução do desenho.
+
+***
+
+## Conclusão
+Para concluírmos, gostaríamos de agradecer a atenção dedicada a análise das nossas resoluções.
