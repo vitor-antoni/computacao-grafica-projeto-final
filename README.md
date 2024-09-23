@@ -128,6 +128,7 @@ Utilizamos o pygame para escrever o código completo, importando tudo do pygame.
 
 Para criação da janela utilizamos como largura 800 e altura 600
 screen_width = 800
+
 screen_height = 600
 
 As cores utilizadas foram: preto, vermelho, azul, ciano e amarelo.
@@ -244,6 +245,7 @@ Nessa atividade é pedido que seja feito um quadrado capaz de se movimentar pela
 Para largura usamos 800 e altura 600.
 
 screen_width = 800
+
 screen_height = 600
 
 Para cores utilizamos preto e branco, sendo branco para o quadrado
@@ -391,6 +393,7 @@ Nessa atividade devemos criar uma casa simples, utilizando um quadrado para o co
 Para largura utilizamos 800 e para altura 600.
 
 screen_width = 800
+
 screen_height = 600
 
 Definimos as cores a serem utilizadas: preto, branco, marrom, verde e azul.
@@ -519,6 +522,7 @@ Por fim a ultima questão propõe a criação de uma cena composta de quadrados 
 Para criação da página utilizamos largura 800 e altura 600.
 
 screen_width = 800
+
 screen_height = 600
 
 Para o tamanho de cada quadrado foi definido tamanho 50. Também definimos que cols são as colunas e rows as linhas
