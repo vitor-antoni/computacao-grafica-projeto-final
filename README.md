@@ -164,7 +164,7 @@ glTranslatef(triangle_pos_x, triangle_pos_y, 0)
 glRotatef(triangle_rotation, 0, 0, 1)
 glScalef(triangle_scale, triangle_scale, 1.0)
 
-draw_triangle()
+draw_right_triangle()
 
 glPopMatrix()
 ```
@@ -175,6 +175,24 @@ glPopMatrix()
 - `glPopMatrix()` > Restaura a matriz para o estado salvo mais recente.
 
 ***
+
+```
+def draw_right_triangle():
+    vertices = (
+        (1, 1, 0),
+        (-1, 0, 0),
+        (-1, 0, 0),
+        (-1, 1, 0))
+
+    glBegin(GL_QUADS)
+    for vertex in vertices:
+        glVertex3fv(vertex)
+    glEnd()
+```
+- `vertices()` > Uma variável do tipo tupla que possuí outras tuplas aninhadas e que possuem as cordenadas de cada vértice do triângulo retângulo.
+- `glBegin(GL_QUADS)` > Indica ao PyOpenGL que deve ser inicializado e que a figura geométrica a ser desenhada é um quadrado, mas que com as cordenadas setadas anteriormente, na verdade será desenhado um triângulo retângulo.
+- `for vertex in vertices` > Um laço FOR que itera a tupla da variável `vertices` e desenha o triângulo retângulo com base nos valores das tuplas aninhadas.
+- `glEnd()` > Finaliza a execução do desenho.
 
 ### Atividade 5
 
