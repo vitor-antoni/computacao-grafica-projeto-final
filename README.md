@@ -114,7 +114,12 @@ def draw_triangle():
 ***
 
 ### Atividade 3
-Como solicitado na proposta da atividade, devemos desenhar um triângulo e definir 3 formas de interação com o desenho. Sendo elas a possibilidade de movê-lo, dimnuí-lo/aumentá-lo e rotacioná-lo. Portanto, segue a explicativa de cada código a abaixo.
+Como solicitado na proposta da atividade, devemos desenhar um triângulo e definir 3 formas de interação com o desenho. Sendo elas a possibilidade de movê-lo, dimnuí-lo/aumentá-lo e rotacioná-lo. Portanto, segue a explicativa de cada código a abaixo e a legenda de comandos possíveis.
+
+- Para movimentar o objeto: setas do teclado
+- Para aumentar e diminuir o objeto: A (aumenta) e D (diminuí)
+- Para rotacionar o objeto: Q (rotaciona sentido anti-horário) e E (rotaciona sentido horário)
+
 ```
 if keys[pygame.K_LEFT]:
     triangle_pos_x -= 0.05
