@@ -4,7 +4,7 @@
 Este repositório está limitado a entrega das atividades propostas da UC de Computação Gráfica. Como relatado, estas irão compor 10 pontos de 40 pontos (25% do total) da avaliação final A3. Todavia, são 8 exercícios propostos pelo professor Vinicius Cassol e Vitor Leaes e que abragem conhecimentos da linguagem de programação Python utilizando os pacotes PyGame, PyOpenGL e Numpy.
 
 ### Colaboradores
-Os colabores e mantenedores deste repositório são _Vitor Silva de Antoni_ e _Lucas Machado Weirich_. Ambos estudantes de Ciência da Computação na instituição **UniRitter - Campus Fapa**.
+Os colabores e mantenedores deste repositório são _Vitor Silva de Antoni_ e _Lucas Machado Weirich_. Ambos estudantes de Ciência da Computação na instituição **UniRitter - Campus Fapa**. A divisão de atividades entre os colaboradores foi baseada atividades de números ímpares ao Vitor e atividades de números pares ao Lucas.
 
 ## Descritivo técnico
 ### Softwares
