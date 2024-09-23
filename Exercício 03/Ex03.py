@@ -64,18 +64,23 @@ def draw():
         glRotatef(triangle_rotation, 0, 0, 1)
         glScalef(triangle_scale, triangle_scale, 1.0)
 
-        draw_triangle()
+        draw_right_triangle()
 
         glPopMatrix()
 
         pygame.display.flip()
         pygame.time.wait(10)
 
-def draw_triangle():
-    glBegin(GL_TRIANGLES)
-    glVertex3f(-3, 1, 0)    # Ponto inferior esquerdo
-    glVertex3f(-1, 1, 0)    # Ponto inferior direito
-    glVertex3f(-2, 2, 0)    # Ponto superior
+def draw_right_triangle():
+    vertices = (
+        (1, 1, 0),
+        (-1, 0, 0),
+        (-1, 0, 0),
+        (-1, 1, 0))
+
+    glBegin(GL_QUADS)
+    for vertex in vertices:
+        glVertex3fv(vertex)
     glEnd()
 
 
