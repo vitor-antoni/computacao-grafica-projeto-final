@@ -123,10 +123,24 @@ screen_height = 600
 
 As cores utilizadas foram: preto, vermelho, azul, ciano e amarelo.
 
+As teclas definidas para cada modo foram: 1, 2, 3 e 4 sendo respectivamente polígono preenchido, contorno, pontos e todos juntos
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            running = False
+        elif event.type == KEYDOWN:
+            # Altera o modo de desenho com as teclas 1, 2, 3 e 4
+            if event.key == K_1:
+                draw_mode = 1  # Preenchido
+            elif event.key == K_2:
+                draw_mode = 2  # Contorno
+            elif event.key == K_3:
+                draw_mode = 3  # Pontos
+            elif event.key == K_4:
+                draw_mode = 4  # Todas as formas juntas
 
-
-
-
+***
 ### Atividade 3
 Como solicitado na proposta da atividade, devemos desenhar um triângulo e definir 3 formas de interação com o desenho. Sendo elas a possibilidade de movê-lo, dimnuí-lo/aumentá-lo e rotacioná-lo. Portanto, segue a explicativa de cada código a abaixo e a legenda de comandos possíveis.
 
@@ -208,6 +222,30 @@ def draw_right_triangle():
 - `for vertex in vertices` > Um laço FOR que itera a tupla da variável `vertices` e desenha o triângulo retângulo com base nos valores das tuplas aninhadas.
 - `glEnd()` > Finaliza a execução do desenho.
 
+***
+### Atividade 4
+Nessa atividade é pedido que seja feito um quadrado capaz de se movimentar pela página com as teclas WASD ou SETAS.
+
+Para largura usamos 800 e altura 600.
+
+screen_width = 800
+screen_height = 600
+
+Para cores utilizamos preto e branco, sendo branco para o quadrado
+
+Definimos que o quadrado se movimenta com ambas as teclas WASD e SETAS.
+
+   if keys[K_UP] or keys[K_w]:    # Cima
+       square_y -= speed
+   if keys[K_DOWN] or keys[K_s]:  # Baixo
+       square_y += speed
+   if keys[K_LEFT] or keys[K_a]:   # Esquerda
+       square_x -= speed
+   if keys[K_RIGHT] or keys[K_d]:  # Direita
+       square_x += speed
+
+       
+***
 ### Atividade 5
 
 Nesta atividade, precisamos criar 3 figuras geométricas (triângulo, círculo e quadrado). Além disto, precisamos criar reflexões destes objetos nos exios X e Y. Portanto, abaixo segue a explicação de execução.
@@ -328,7 +366,31 @@ def draw_square():
 - Para fazer a reflexão do quadrado sob o eixo Y, precisamos multiplicar a cordenada X do círculo por -1. E para fazer a reflexão sob o eixo X, precisamos multiplicar as cordenadas Y de cada vértice por -1.
 
 ***
+### Atividade 6
+Nessa atividade devemos criar uma casa simples, utilizando um quadrado para o corpo, um triângulo para o telhado e dois círculos para as janelas
 
+Para largura utilizamos 800 e para altura 600.
+
+screen_width = 800
+screen_height = 600
+
+Definimos as cores a serem utilizadas: preto, branco, marrom, verde e azul.
+
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+BROWN = (165, 42, 42)  # Cor do corpo da casa
+GREEN = (0, 128, 0)  # Cor do telhado
+BLUE = (0, 0, 255)  # Cor das janelas
+
+Para o tamanho de cada objeto utilizamos as coordenadas x e y
+
+   window_radius = 20
+   window_y = house_y + 50
+   pygame.draw.circle(screen, BLUE, (house_x + 40, window_y + 40), window_radius)
+   pygame.draw.circle(screen, BLUE, (house_x + 110, window_y + 40), window_radius)
+
+
+***
 ### Atividade 7
 Conforme solicitado na atividade, devemos montar um deseneho com as formas geométricas primitivas. Portanto, foi escolhido o deseneho de uma boneca, em que os braços são representados por linhas, o corpo por triângulo, as pernas por retângulos e a cabeça por círculo.
 
@@ -427,6 +489,34 @@ def draw_arms():
 - `glEnd()` > Finaliza a execução do desenho.
 
 ***
+### Atividade 8
 
+Por fim a ultima questão propõe a criação de uma cena composta de quadrados distribuídos em grid conforme o exemplo
+
+Para criação da página utilizamos largura 800 e altura 600.
+
+screen_width = 800
+screen_height = 600
+
+Para o tamanho de cada quadrado foi definido tamanho 50. Também definimos que cols são as colunas e rows as linhas
+
+grid_size = 50  # Tamanho de cada quadrado
+cols = screen_width // grid_size  # Número de colunas
+rows = screen_height // grid_size  # Número de linhas
+
+Para geração de cores aleatórias nos quadrados definimos color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+
+for row in range(rows):
+       for col in range(cols):
+           # Gera uma cor aleatória
+           color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+           # Calcula a posição do quadrado
+           x = col * grid_size
+           y = row * grid_size
+           # Desenha o quadrado
+           pygame.draw.rect(screen, color, (x, y, grid_size, grid_size))
+
+
+***
 ## Conclusão
 Para concluírmos, gostaríamos de agradecer a atenção dedicada a análise das nossas resoluções.
