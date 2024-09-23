@@ -1,0 +1,77 @@
+import pygame
+from pygame.locals import *
+
+# Inicializa o Pygame
+pygame.init()
+
+# Configuração da janela
+screen_width = 800
+screen_height = 600
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Triângulos com Interação")
+
+# Cores
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+YELLOW = (255, 255, 0)
+CYAN = (0, 255, 255)
+
+# Modo de desenho global (1: preenchido, 2: contorno, 3: pontos, 4: todos)
+draw_mode = 1
+
+# Definindo os triângulos
+triangle1 = [(300, 400), (400, 400), (350, 300)]  # Triângulo 1
+triangle2 = [(500, 400), (600, 400), (550, 300)]  # Triângulo 2
+
+# Loop principal
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            running = False
+        elif event.type == KEYDOWN:
+            # Altera o modo de desenho com as teclas 1, 2, 3 e 4
+            if event.key == K_1:
+                draw_mode = 1  # Preenchido
+            elif event.key == K_2:
+                draw_mode = 2  # Contorno
+            elif event.key == K_3:
+                draw_mode = 3  # Pontos
+            elif event.key == K_4:
+                draw_mode = 4  # Todas as formas juntas
+
+    # Preenche a tela com a cor preta
+    screen.fill(BLACK)
+
+    # Desenha os triângulos de acordo com o modo selecionado
+    if draw_mode == 1:  # Preenchido
+        pygame.draw.polygon(screen, RED, triangle1)  # Triângulo 1
+        pygame.draw.polygon(screen, BLUE, triangle2)  # Triângulo 2
+    elif draw_mode == 2:  # Contorno
+        pygame.draw.polygon(screen, YELLOW, triangle1, 2)  # Contorno do Triângulo 1
+        pygame.draw.polygon(screen, CYAN, triangle2, 2)  # Contorno do Triângulo 2
+    elif draw_mode == 3:  # Pontos
+        for point in triangle1:
+            pygame.draw.circle(screen, RED, point, 5)  # Pontos do Triângulo 1
+        for point in triangle2:
+            pygame.draw.circle(screen, BLUE, point, 5)  # Pontos do Triângulo 2
+    elif draw_mode == 4:  # Todas as formas juntas
+        pygame.draw.polygon(screen, RED, triangle1)  # Triângulo 1 preenchido
+        pygame.draw.polygon(screen, YELLOW, triangle1, 2)  # Contorno do Triângulo 1
+        for point in triangle1:
+            pygame.draw.circle(screen, RED, point, 5)  # Pontos do Triângulo 1
+
+        pygame.draw.polygon(screen, BLUE, triangle2)  # Triângulo 2 preenchido
+        pygame.draw.polygon(screen, CYAN, triangle2, 2)  # Contorno do Triângulo 2
+        for point in triangle2:
+            pygame.draw.circle(screen, BLUE, point, 5)  # Pontos do Triângulo 2
+
+    # Atualiza a tela
+    pygame.display.flip()
+
+    # Controla a taxa de atualização
+    pygame.time.delay(30)
+
+# Encerra o Pygame
+pygame.quit()
