@@ -122,6 +122,11 @@ def draw_triangle():
 ***
 
 ### Atividade 2
+
+![Ex02-a](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex02-a.png)
+![Ex02-b](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex02-b.png)
+![Ex02-c](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex02-c.png)
+![Ex02-d](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex02-d.png)
 Como solicitado na proposta da atividade, precisamos desenhar dois triângulos em uma mesma tela com interações, sendo elas: apenas polígono preenchido, apenas com contorno, apenas como pontos e todas as opções juntas.
 
 Utilizamos o pygame para escrever o código completo, importando tudo do pygame.locals
@@ -240,6 +245,10 @@ def draw_right_triangle():
 ***
 
 ### Atividade 4
+
+![Ex04-a](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex04-a.png)
+![Ex04-b](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex04-b.png)
+
 Nessa atividade é pedido que seja feito um quadrado capaz de se movimentar pela página com as teclas WASD ou SETAS.
 
 Para largura usamos 800 e altura 600.
@@ -388,6 +397,9 @@ def draw_square():
 ***
 
 ### Atividade 6
+
+![Ex06](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex06.png)
+
 Nessa atividade devemos criar uma casa simples, utilizando um quadrado para o corpo, um triângulo para o telhado e dois círculos para as janelas
 
 Para largura utilizamos 800 e para altura 600.
@@ -516,6 +528,9 @@ def draw_arms():
 ***
 
 ### Atividade 8
+
+![Ex08-a](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex08.png)
+![Ex08-b](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex08-b.png)
 
 Por fim a ultima questão propõe a criação de uma cena composta de quadrados distribuídos em grid conforme o exemplo
 
