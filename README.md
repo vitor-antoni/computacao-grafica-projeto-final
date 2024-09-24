@@ -240,7 +240,10 @@ def draw_right_triangle():
 - `for vertex in vertices` > Um laço FOR que itera a tupla da variável `vertices` e desenha o triângulo retângulo com base nos valores das tuplas aninhadas.
 - `glEnd()` > Finaliza a execução do desenho.
 
-![Ex03](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex03.png)
+![Ex03-a](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex03-a.png)
+![Ex03-b](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex03-b.png)
+![Ex03-c](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex03-c.png)
+![Ex03-d](https://github.com/vitor-antoni/avaliacao-a3-cg-2024/blob/main/img/Ex03-d.png)
 
 ***
 
